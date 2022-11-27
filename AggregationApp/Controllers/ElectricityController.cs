@@ -26,7 +26,7 @@ namespace AggregationApp.Controllers
             if(response.Count == 0)
             {
                 _logger.LogWarning("Electricity data has not been processed yet or a problem occured during the data process");
-                return NoContent();
+                return Ok("Electricity data has not been processed yet");
             }
 
             else

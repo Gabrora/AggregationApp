@@ -1,0 +1,28 @@
+﻿version: "3.4"
+
+networks:
+  AggregationApp:
+
+services:
+    api:
+        container_name: api  
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+          - "8081:80"
+        depends_on:
+          - ms-sql
+        networks: 
+          - AggregationApp
+
+    ms-sql:
+        container_name: ms-sql
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        environment:
+            - ACCEPT_EULA=Y
+            - MSSQL_SA_PASSWORD=password*123445*
+        ports:
+            - "1450:1433"
+        networks:
+            - AggregationApp

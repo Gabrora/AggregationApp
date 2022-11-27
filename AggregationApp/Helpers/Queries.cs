@@ -39,8 +39,8 @@ namespace AggregationApp.Helpers
             DateTime maxDate = Convert.ToDateTime(maxDateObj);
 
             IEnumerable<DataRow> data = from myRow in dt.AsEnumerable()
-                                        where myRow.Field<DateTime>("PL_T") <= maxDate &&
-                                        myRow.Field<DateTime>("PL_T").Month >= maxDate.AddMonths(-4).Month &&
+                                        where myRow.Field<DateTime>("PL_T").Month <= maxDate.Month &&
+                                        myRow.Field<DateTime>("PL_T").Month >= maxDate.AddMonths(-3).Month &&
                                         myRow.Field<string>("OBT_PAVADINIMAS") == "Butas"
                                         select myRow;
 

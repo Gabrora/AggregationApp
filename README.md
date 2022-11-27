@@ -1,4 +1,5 @@
 main flow:
+- use docker-compose to build and run the application
 - on startup application ensures that database 'db' is created.
 - if 'AggregatedElectricities' table is empty, application will start the flow of fetching the CSVs
 - CSVS fetching process will take some time, because of the large size of the data
